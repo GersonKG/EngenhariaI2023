@@ -1,0 +1,57 @@
+@startuml
+/'Aluno: Gerson K.Goulart/'
+/'Caso de uso de sistema de Universidade
+'/
+
+left to right direction
+
+ 
+package Universidade {
+  
+  actor Coordenador as sa
+  actor Reitor as ch
+  actor Professor as P
+  actor Higiêne as F
+  actor Financeiro as R
+  actor Segurança as S
+  actor Aluno as c
+  actor Funcionário as Fu
+  
+}
+package Ocupações {
+  usecase "Assiste Aula" as UC1
+  usecase "Estuda" as UC2
+  usecase "Paga" as UC3
+  usecase "Adminstra Curso e Orienta Matrícula" as UC4
+  usecase "Administra e Representa Universidade" as UC5
+  usecase "Presta Serviço" as UC6
+  usecase "Atender Universidade" as UC7
+  usecase "Gerenciar Receitas e Despesas" as UC8
+  usecase "Recebe" as UC9
+  usecase "Ministra Aula" as UC10
+  usecase "Protege e Garante Integridade" as UC11
+  usecase "Limpa e Organiza" as UC12
+
+  (P)--(UC11)
+  (sa)--(UC4)
+  (ch)--(UC5)
+  (F)--(UC12)
+  (R)--(UC8)
+  (R)--(UC9)
+  (R)--(UC3)
+  (S)--(UC11)
+  Fu -- UC6
+
+}
+
+
+sa -- UC4
+c -- UC1
+c -- UC2
+c -- UC3
+sa <|-- ch
+P <|-- sa
+c <|-- P
+@enduml
+  (UC1) .> (UC2) : include
+  (UC3) .> (UC2) : <<extends>>
