@@ -1,0 +1,77 @@
+@startuml
+/'Aluno: Gerson K.Goulart/'
+/'Caso de uso Delicias Gourmet
+'/
+
+left to right direction
+
+ 
+package Funcionarios {
+  
+  actor GerenteCompras as Ger
+  actor SupervisoraEstoque as Su
+  actor CoordenadorProdução as Coo
+  actor AnalistaQualidade as AQ
+  actor ResponsavelVendas as RVD
+  
+}
+
+package Compras {
+
+  usecase "Identificar necessidades de compra" as UC14
+  usecase "Negociar valores de compra" as UC15
+  usecase "Comprar itens" as UC16
+}
+package Produção {
+  
+  usecase "Planejar organização da produção" as UC17
+  usecase "Supervisionar a equipe de produção" as UC18
+  usecase "Gerenciar processos de produção" as UC19
+}
+
+
+
+package Funções {
+  usecase "Identificar necessidades de compra" as UC1
+  usecase "Negociar valores de compra" as UC2
+  usecase "Comprar itens" as UC3
+  usecase "Supervisionar e organização." as UC4
+  usecase "Monitora Estoque" as UC5
+  usecase "Planejar organização da produção" as UC6
+  usecase "Supervisionar a equipe de produção" as UC7
+  usecase "Gerenciar processos de produção" as UC8
+  usecase "Desenvolver e implementar" as UC9
+  usecase "Realizar avaliações Qualidade" as UC10
+  usecase "Realizar vendas e distribuição" as UC11
+  usecase "Gerenciar recursos para alavancar compras" as UC12
+  usecase "Administrar a distribuição de produtos" as UC13
+
+  (Ger)--(UC1)
+  (Ger)--(UC2)
+  (Ger)--(UC3)
+  (Su)--(UC4)
+  (Su)--(UC5)
+  (Coo)--(UC6)
+  (Coo)--(UC7)
+  (Coo)--(UC8)
+  (AQ) -- (UC9)
+  (AQ) -- (UC10)
+  (RVD) -- (UC11)
+  (RVD) -- (UC12)
+  (RVD) -- (UC13)
+  (Ger)--|>(UC14)
+  (UC14)--|>(UC15)
+  (UC15)--|>(UC16)
+  (Coo)--|>(UC17)
+  (UC17)--|>(UC18)
+  (UC18)--|>(UC19)
+}
+
+
+RVD <|-- AQ
+AQ <|-- Coo
+Coo <|-- Su
+Su <|-- Ger
+@enduml
+  (UC1) .> (UC2) : include
+  (UC3) .> (UC2) : <<extends>>
